@@ -40,8 +40,10 @@ services:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+      # Inyectamos exactamente lo que espera tu yaml:
       - DATABASE_URL=r2dbc:postgresql://postgres-db:5432/walletdb
       - DATABASE_PASSWORD=LocalSecurePassword2026!
+      # Configuramos Rabbit para que use el contenedor interno de Docker:
       - SPRING_RABBITMQ_HOST=rabbitmq
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest

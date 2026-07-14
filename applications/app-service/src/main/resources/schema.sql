@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS pockets (
                                        id UUID PRIMARY KEY,
                                        wallet_id UUID NOT NULL,
                                        name VARCHAR(100) NOT NULL,
-    balance NUMERIC(15, 2) NOT NULL,
+    balance NUMERIC(15, 2) NOT NULL, -- 👈 Removimos la coma extra que estaba arriba de este campo
     CONSTRAINT fk_wallet FOREIGN KEY (wallet_id) REFERENCES wallets(id) ON DELETE CASCADE
     );
 
