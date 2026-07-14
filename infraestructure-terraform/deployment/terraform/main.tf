@@ -15,6 +15,7 @@ module "database" {
   source             = "./modules/database"
   vpc_id             = module.networking.vpc_id
   private_subnet_ids = module.networking.private_subnet_ids
+  public_subnet_ids     = module.networking.public_subnet_ids
   ecs_security_group_id = module.security.ecs_security_group_id
   db_password        = var.db_password
 }
@@ -29,6 +30,7 @@ module "compute" {
   db_endpoint            = module.database.db_endpoint
   ecr_image_url          = aws_ecr_repository.wallet_api_repo.repository_url
   ecs_exec_role_arn      = aws_iam_role.ecs_execution_role.arn
+  db_password            = var.db_password
 }
 
 resource "aws_iam_role" "ecs_execution_role" {

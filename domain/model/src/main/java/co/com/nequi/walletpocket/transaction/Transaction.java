@@ -1,9 +1,9 @@
-package co.com.nequi.walletpocket.domain.transaction;
+package co.com.nequi.walletpocket.transaction;
 
 
-import co.com.nequi.walletpocket.domain.transaction.values.Description;
-import co.com.nequi.walletpocket.domain.transaction.values.TransactionId;
-import co.com.nequi.walletpocket.domain.wallet.values.Money;
+import co.com.nequi.walletpocket.transaction.values.Description;
+import co.com.nequi.walletpocket.transaction.values.TransactionId;
+import co.com.nequi.walletpocket.wallet.values.Money;
 
 public record Transaction(TransactionId id, Description description, Money amount) {
 

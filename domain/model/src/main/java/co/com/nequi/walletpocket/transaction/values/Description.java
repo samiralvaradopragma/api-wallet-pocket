@@ -1,4 +1,4 @@
-package co.com.nequi.walletpocket.domain.transaction.values;
+package co.com.nequi.walletpocket.transaction.values;
 
 public record Description(String value) {
     public Description {

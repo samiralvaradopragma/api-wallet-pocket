@@ -23,7 +23,7 @@ resource "aws_lb_target_group" "tg" {
     unhealthy_threshold = 3
     timeout             = 5
     interval            = 30
-    matcher             = "200-499"
+    matcher             = "200-499" # Rango amplio para evitar falsos negativos en el arranque
   }
 }
 
@@ -54,9 +54,20 @@ resource "aws_ecs_task_definition" "app" {
       containerPort = 8080
       hostPort      = 8080
     }]
+
+    logConfiguration = {
+      logDriver = "awslogs"
+      options = {
+        "awslogs-group"         = aws_cloudwatch_log_group.ecs_log_group.name
+        "awslogs-region"        = "us-east-2"
+        "awslogs-stream-prefix" = "wallet"
+      }
+    }
+
     environment = [
       { name = "SPRING_PROFILES_ACTIVE", value = "prod" },
-      { name = "DATABASE_URL", value = "r2dbc:postgresql://${var.db_endpoint}/walletdb" }
+      { name = "DATABASE_URL", value = "r2dbc:postgresql://${var.db_endpoint}/walletdb?sslMode=require" },
+      { name = "DATABASE_PASSWORD", value = var.db_password }
     ]
   }])
 }
@@ -69,9 +80,10 @@ resource "aws_ecs_service" "service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets          = var.private_subnet_ids
+    # 🚨 CAMBIO CRÍTICO: Debe ser public_subnet_ids para heredar la ruta al Internet Gateway
+    subnets          = var.public_subnet_ids
     security_groups  = [var.ecs_security_group_id]
-    assign_public_ip = false
+    assign_public_ip = true
   }
 
   load_balancer {
@@ -79,4 +91,10 @@ resource "aws_ecs_service" "service" {
     container_name   = "wallet-api"
     container_port   = 8080
   }
+}
+
+# 📁 Grupo de almacenamiento de Logs en CloudWatch
+resource "aws_cloudwatch_log_group" "ecs_log_group" {
+  name              = "/ecs/wallet-pocket-api"
+  retention_in_days = 7
 }

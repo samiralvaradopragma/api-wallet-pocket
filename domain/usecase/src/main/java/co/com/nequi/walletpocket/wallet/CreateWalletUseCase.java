@@ -1,10 +1,8 @@
 package co.com.nequi.walletpocket.wallet;
 
-import co.com.nequi.walletpocket.domain.transaction.exception.BusinessTransactionException;
-import co.com.nequi.walletpocket.domain.wallet.Wallet;
-
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
+import co.com.nequi.walletpocket.transaction.exception.BusinessTransactionException;
 import co.com.nequi.walletpocket.wallet.gateaway.WalletRepository;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;

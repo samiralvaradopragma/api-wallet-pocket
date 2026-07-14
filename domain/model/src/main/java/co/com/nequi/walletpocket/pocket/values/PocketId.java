@@ -1,4 +1,4 @@
-package co.com.nequi.walletpocket.domain.pocket.values;
+package co.com.nequi.walletpocket.pocket.values;
 
 import java.util.UUID;
 

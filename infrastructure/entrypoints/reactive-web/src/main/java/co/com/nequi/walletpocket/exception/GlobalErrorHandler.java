@@ -1,7 +1,7 @@
 package co.com.nequi.walletpocket.exception;
 
-import co.com.nequi.walletpocket.domain.pocket.exception.PocketNotFoundException;
-import co.com.nequi.walletpocket.domain.wallet.exception.WalletNotFoundException;
+import co.com.nequi.walletpocket.pocket.exception.PocketNotFoundException;
+import co.com.nequi.walletpocket.wallet.exception.WalletNotFoundException;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;

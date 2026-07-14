@@ -1,7 +1,7 @@
 package co.com.nequi.walletpocket.wallet.gateaway;
 
-import co.com.nequi.walletpocket.domain.wallet.Wallet;
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
+import co.com.nequi.walletpocket.wallet.Wallet;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 import reactor.core.publisher.Mono;
 
 public interface WalletRepository {

@@ -7,8 +7,9 @@ CREATE TABLE IF NOT EXISTS pockets (
                                        id UUID PRIMARY KEY,
                                        wallet_id UUID NOT NULL,
                                        name VARCHAR(100) NOT NULL,
-    balance NUMERIC(15, 2) NOT NULL, -- 👈 Removimos la coma extra que estaba arriba de este campo
-    CONSTRAINT fk_wallet FOREIGN KEY (wallet_id) REFERENCES wallets(id) ON DELETE CASCADE
+    balance NUMERIC(15, 2) NOT NULL,
+    CONSTRAINT fk_wallet FOREIGN KEY (wallet_id) REFERENCES wallets(id) ON DELETE CASCADE,
+    CONSTRAINT uq_wallet_pocket_name UNIQUE (wallet_id, name) -- 👈 Definimos la unicidad directamente aquí de forma segura
     );
 
 CREATE TABLE IF NOT EXISTS transactions (
@@ -21,4 +22,3 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 CREATE INDEX IF NOT EXISTS idx_pockets_wallet_id ON pockets(wallet_id);
 CREATE INDEX IF NOT EXISTS idx_transactions_pocket_id ON transactions(pocket_id);
-CREATE UNIQUE INDEX IF NOT EXISTS uq_wallet_pocket_name ON pockets(wallet_id, name);

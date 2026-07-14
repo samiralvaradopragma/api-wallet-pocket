@@ -1,4 +1,4 @@
-package co.com.nequi.walletpocket.domain.transaction.exception;
+package co.com.nequi.walletpocket.transaction.exception;
 
 public class BusinessTransactionException extends RuntimeException {
 

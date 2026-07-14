@@ -1,4 +1,4 @@
-package co.com.nequi.walletpocket.domain.pocket.exception;
+package co.com.nequi.walletpocket.pocket.exception;
 
 public class PocketNotFoundException extends RuntimeException {
 

@@ -1,22 +1,21 @@
 package co.com.nequi.walletpocket;
 
-import co.com.nequi.walletpocket.domain.pocket.Pocket;
-import co.com.nequi.walletpocket.domain.pocket.values.PocketId;
-import co.com.nequi.walletpocket.domain.transaction.Transaction;
-import co.com.nequi.walletpocket.domain.transaction.values.Description;
-import co.com.nequi.walletpocket.domain.transaction.values.TransactionId;
-import co.com.nequi.walletpocket.domain.wallet.Wallet;
-
-import co.com.nequi.walletpocket.domain.wallet.values.Money;
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
 
 import co.com.nequi.walletpocket.entity.PocketEntity;
 import co.com.nequi.walletpocket.entity.TransactionEntity;
 import co.com.nequi.walletpocket.entity.WalletEntity;
+import co.com.nequi.walletpocket.pocket.Pocket;
+import co.com.nequi.walletpocket.pocket.values.PocketId;
 import co.com.nequi.walletpocket.repository.SpringDataPocketRepository;
 import co.com.nequi.walletpocket.repository.SpringDataTransactionRepository;
 import co.com.nequi.walletpocket.repository.SpringDataWalletRepository;
+import co.com.nequi.walletpocket.transaction.Transaction;
+import co.com.nequi.walletpocket.transaction.values.Description;
+import co.com.nequi.walletpocket.transaction.values.TransactionId;
+import co.com.nequi.walletpocket.wallet.Wallet;
 import co.com.nequi.walletpocket.wallet.gateaway.WalletRepository;
+import co.com.nequi.walletpocket.wallet.values.Money;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

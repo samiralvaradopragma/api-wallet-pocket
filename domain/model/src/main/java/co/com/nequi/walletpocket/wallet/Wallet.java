@@ -1,8 +1,9 @@
-package co.com.nequi.walletpocket.domain.wallet;
+package co.com.nequi.walletpocket.wallet;
 
 
-import co.com.nequi.walletpocket.domain.pocket.Pocket;
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
+
+import co.com.nequi.walletpocket.pocket.Pocket;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 
 import java.util.ArrayList;
 import java.util.Collections;

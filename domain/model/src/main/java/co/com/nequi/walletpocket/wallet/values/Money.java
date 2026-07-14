@@ -1,4 +1,4 @@
-package co.com.nequi.walletpocket.domain.wallet.values;
+package co.com.nequi.walletpocket.wallet.values;
 
 import java.math.BigDecimal;
 import java.util.Objects;

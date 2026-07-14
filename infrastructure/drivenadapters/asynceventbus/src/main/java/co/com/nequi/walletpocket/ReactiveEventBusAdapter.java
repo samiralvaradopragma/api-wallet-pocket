@@ -1,7 +1,7 @@
 package co.com.nequi.walletpocket;
 
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
-import co.com.nequi.walletpocket.domain.transaction.Transaction;
+import co.com.nequi.walletpocket.transaction.Transaction;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import co.com.nequi.walletpocket.wallet.gateaway.EventBusGateway;
 import org.slf4j.Logger;

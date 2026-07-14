@@ -6,3 +6,7 @@ variable "ecs_security_group_id" { type = string }
 variable "db_endpoint" { type = string }
 variable "ecr_image_url" { type = string }
 variable "ecs_exec_role_arn" { type = string }
+variable "db_password" {
+  type      = string
+  sensitive = true
+}

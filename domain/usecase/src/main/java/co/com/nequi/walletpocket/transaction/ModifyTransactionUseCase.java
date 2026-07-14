@@ -1,16 +1,15 @@
 package co.com.nequi.walletpocket.transaction;
 
-import co.com.nequi.walletpocket.domain.pocket.Pocket;
-import co.com.nequi.walletpocket.domain.pocket.exception.PocketNotFoundException;
-import co.com.nequi.walletpocket.domain.pocket.values.PocketId;
-import co.com.nequi.walletpocket.domain.transaction.Transaction;
-import co.com.nequi.walletpocket.domain.transaction.exception.BusinessTransactionException;
-import co.com.nequi.walletpocket.domain.transaction.values.TransactionId;
-import co.com.nequi.walletpocket.domain.wallet.Wallet;
-import co.com.nequi.walletpocket.domain.wallet.exception.WalletNotFoundException;
-import co.com.nequi.walletpocket.domain.wallet.values.Money;
-import co.com.nequi.walletpocket.domain.wallet.values.WalletId;
+import co.com.nequi.walletpocket.transaction.exception.BusinessTransactionException;
+import co.com.nequi.walletpocket.transaction.values.TransactionId;
+import co.com.nequi.walletpocket.pocket.Pocket;
+import co.com.nequi.walletpocket.pocket.exception.PocketNotFoundException;
+import co.com.nequi.walletpocket.pocket.values.PocketId;
+import co.com.nequi.walletpocket.wallet.Wallet;
+import co.com.nequi.walletpocket.wallet.exception.WalletNotFoundException;
 import co.com.nequi.walletpocket.wallet.gateaway.WalletRepository;
+import co.com.nequi.walletpocket.wallet.values.Money;
+import co.com.nequi.walletpocket.wallet.values.WalletId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
