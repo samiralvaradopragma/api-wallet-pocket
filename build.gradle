@@ -1,47 +1,23 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '4.1.0'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.springframework.boot' version '3.2.2' apply false
+    id 'io.spring.dependency-management' version '1.1.4' apply false
 }
 
-group = 'com.nequi'
-version = '0.0.1-SNAPSHOT'
-description = 'wallet-pocket'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+allprojects {
+    repositories {
+        mavenCentral()
     }
 }
 
-repositories {
-    mavenCentral()
-}
+subprojects { subproject ->
+    if (subproject.buildFile.exists() &&
+            subproject.name != 'domain' &&
+            subproject.name != 'infraestructure' &&
+            subproject.name != 'applications' &&
+            subproject.name != 'drivenadapters' &&
+            subproject.name != 'entrypoints') {
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-    implementation 'org.springframework.boot:spring-boot-starter-r2dbc'
-    implementation 'org.springframework.boot:spring-boot-starter-webclient'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.amqp:spring-rabbit-stream'
-    implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.2.0'
-    implementation 'io.github.resilience4j:resilience4j-reactor:2.2.0'
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'org.postgresql:postgresql'
-    runtimeOnly 'org.postgresql:r2dbc-postgresql'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-amqp-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-data-r2dbc-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-r2dbc-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webclient-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
-    testCompileOnly 'org.projectlombok:lombok'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testAnnotationProcessor 'org.projectlombok:lombok'
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
+        group = 'com.nequi'
+        version = '0.0.1-SNAPSHOT'
+    }
 }

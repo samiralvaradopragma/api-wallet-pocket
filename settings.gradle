@@ -1,4 +1,12 @@
 plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
+
 rootProject.name = 'wallet-pocket'
+
+include ':domain:model'
+include ':domain:usecase'
+include ':infrastructure:drivenadapters:asynceventbus'
+include ':infrastructure:drivenadapters:postgrest'
+include ':infrastructure:entrypoints:reactive-web'
+include ':applications:app-service'
